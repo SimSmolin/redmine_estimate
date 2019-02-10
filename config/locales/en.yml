@@ -1,6 +1,6 @@
 # English strings go here for Rails i18n
 en:
-  button_issue_estimate: "Оценка задачи"
+  button_issue_estimate: "Estimate time issue"
   label_estimate_time: "Total estimates"
   label_estimate_accepted_time: "Accepted estimates"
   label_estimates_actions: "Actions for estimates"

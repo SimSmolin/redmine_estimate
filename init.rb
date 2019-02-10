@@ -17,11 +17,11 @@ end
 
 Redmine::Plugin.register :redmine_estimates do
   name 'Estimates plugin'
-  author 'Nick Mikhno'
-  description 'This is Redmine plugin for multiple estimate entries for a single task'
-  version '0.9'
-  url 'http://evergreen.team'
-  author_url 'https://ua.linkedin.com/in/nick-mikhno-b3462b74'
+  author 'Sergey Melnikov based on the Nick Mikhno code'
+  description 'This is Redmine 3.x.x plugin for multiple estimate entries for a single task'
+  version '1.0'
+  url 'http://krit.pro'
+  author_url 'https://www.linkedin.com/in/sergey-melnikov-07936b162/'
 
   permission :view_estimates, {:estimates => [:new, :create, :index, :report]}, :public => true
   permission :edit_estimates, {:estimates => [:edit, :update, :destroy, :accept]}

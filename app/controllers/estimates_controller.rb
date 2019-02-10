@@ -102,10 +102,10 @@ class EstimatesController < ApplicationController
     @time_entry.safe_attributes = params[:estimate_entry]
   end
 
-    def create
+  def create
     @time_entry ||= EstimateEntry.new(:project => @project, :issue => @issue, :user => User.current, :spent_on => User.current.today)
     @time_entry.safe_attributes = params[:estimate_entry]
-    if @time_entry.project && !User.current.allowed_to?(:log_time, @time_entry.project)
+    if @time_entry.project && !User.current.allowed_to?(:edit_estimates, @time_entry.project)
       render_403
       return
     end
@@ -173,9 +173,13 @@ class EstimatesController < ApplicationController
 
   def accept 
     @time_entry.safe_attributes = params[:estimate_entry]
-    
+    if !User.current.allowed_to?(:accept_estimates,  @time_entry.project)  && !User.current.admin?
+      render_403
+      return
+    end
+
     is_accepted = params[:estimate_entry][:is_accepted]
-    
+
     if is_accepted
       @time_entry.is_accepted =  is_accepted
     end
@@ -183,7 +187,7 @@ class EstimatesController < ApplicationController
     update
 
   end
-  
+
   def bulk_edit
     @available_activities = TimeEntryActivity.shared.active
     @custom_fields = EstimateEntry.first.available_custom_fields
