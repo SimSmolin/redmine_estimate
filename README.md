@@ -10,7 +10,7 @@ This is Redmine plugin for multiple estimate entries for a single task
    * If you are downloading the plugin directly from GitHub, you can do so by changing into your plugin directory and issuing a command like 
 
     ```
-    git clone https://github.com/nmikhno/redmine_estimates.git
+    git clone https://github.com/SimSmolin/redmine_estimates.git
     ```
 
 2. The plugin requires a migration, run the following command in #{RAILS_ROOT} to upgrade your database (make a db backup before).
