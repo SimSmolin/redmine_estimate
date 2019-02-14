@@ -2,6 +2,7 @@ require 'redmine'
 require_relative 'lib/issues_controller_patch'
 require_relative 'lib/issue_model_patch'
 require_relative 'lib/issue_query_patch'
+require_relative 'lib/queries_helper_patch'
 
 ActionDispatch::Callbacks.to_prepare do
   IssuesController.send :include, IssuesControllerPatch
@@ -13,6 +14,10 @@ end
 
 ActionDispatch::Callbacks.to_prepare do
   IssueQuery.send :include, IssueQueryPatch
+end
+
+ActionDispatch::Callbacks.to_prepare do
+  QueriesHelper.send :include, QueriesHelperPatch
 end
 
 Redmine::Plugin.register :redmine_estimates do
