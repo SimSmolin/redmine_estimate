@@ -15,11 +15,15 @@ This is Redmine plugin for multiple estimate entries for a single task
 
 2. The plugin requires a migration, run the following command in #{RAILS_ROOT} to upgrade your database (make a db backup before).
 
-   For Redmine 2.x:
+   For Redmine 2.x and 3.x:
     
     ```
     bundle exec rake redmine:plugins:migrate RAILS_ENV=production
     ```
+   If you need uninstall previous version
+   ```
+    bundle exec rake redmine:plugins:migrate NAME=redmine_estimates VERSION=0 RAILS_ENV=production
+   ```
    
    ####NOTE: 
    
